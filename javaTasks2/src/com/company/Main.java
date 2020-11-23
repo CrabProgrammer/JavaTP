@@ -5,62 +5,48 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 public class Main {
-    public static String repeat(String str, int n)
+    public static String repeat(String str, int number)
     {
-        String res = "";
+        String resultString = "";
         for (int i = 0; i < str.length(); i++)
         {
             char ch = str.charAt(i);
-            for (int j = 0; j < n; j++)
-            {
-                res += ch;
-            }
+            for (int j = 0; j < number; j++)
+                resultString += ch;
         }
 
-        return res;
+        return resultString;
     }
     public static int differenceMaxMin(ArrayList<Integer> mas)
     {
-        Iterator<Integer> it = mas.iterator();
-        int max = it.next();
+        Iterator<Integer> iter = mas.iterator();
+        int max = iter.next();
         int min = max;
-        while (it.hasNext())
+        while (iter.hasNext())
         {
-            int val = it.next();
+            int val = iter.next();
             if (val > max)
-            {
                 max = val;
-            }
             else if (val < min)
-            {
                 min = val;
-            }
         }
-
         return max - min;
     }
-    public static boolean isAvgWhole(ArrayList<Integer> mas)
+    public static boolean isAvgWhole(ArrayList<Integer> arr)
     {
         int sum = 0;
-        for (int val : mas)
-        {
+        for (int val : arr)
             sum += val;
-        }
-
-        if (sum % mas.size() == 0)
-        {
+        if (sum % arr.size() == 0)
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
-    public static void cumulativeSum (ArrayList<Integer> mas)
+    public static void cumulativeSum (ArrayList<Integer> arr)
     {
         int sum = 0;
-        ListIterator<Integer> it = mas.listIterator();
+        ListIterator<Integer> it = arr.listIterator();
         while (it.hasNext())
         {
             sum += it.next();
@@ -70,13 +56,9 @@ public class Main {
     public static int getDecimalPlaces(String str)
     {
         if (str.contains("."))
-        {
             return str.length() - 1 - str.indexOf('.');
-        }
         else
-        {
             return 0;
-        }
     }
 
     public static int fibonacci(int n)
@@ -104,16 +86,12 @@ public class Main {
     public static boolean isValid(String str)
     {
         if (str.length() != 5)
-        {
             return false;
-        }
 
         for (int i = 0; i < 5; i++)
         {
             if (str.codePointAt(i) < '0' || str.codePointAt(i) > '9')
-            {
                 return false;
-            }
         }
 
         return true;
@@ -122,150 +100,115 @@ public class Main {
     public static boolean isStrangePair(String str1, String str2)
     {
         if (str1.charAt(0) == str2.charAt(str2.length()-1) && str1.charAt(str1.length()-1) == str2.charAt(0))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
     public static boolean isSuffix(String word, String str)
     {
         str = str.substring(1);
         if (word.endsWith(str))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     public static boolean isPrefix(String word, String str)
     {
         str = str.substring(0, str.length()-1);
         if (word.startsWith(str))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     public static int boxSeq(int n)
     {
         if (n % 2 == 0)
-        {
             return n;
-        }
         else
-        {
             return n+2;
-        }
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         //task 11
-        /*
-        System.out.println("Введите строку и число:");
-        String str = in.next();
-        int n = in.nextInt();
-        in.close();
-        System.out.println(repeat(str, n)); */
+        System.out.println("Enter string and number:");
+        String str11 = scanner.next();
+        int number11 = scanner.nextInt();
+        System.out.println(repeat(str11, number11));
 
         //task 12
-        /*
-        System.out.println("Введите числа:");
-        String[] strArr = in.nextLine().split(" ");
-        ArrayList<Integer> mas = new ArrayList<>(strArr.length);
-        for (int i = 0; i < strArr.length; i++)
+        System.out.println("Enter numbers:");
+        String[] strArr12 = scanner.nextLine().split(" ");
+        ArrayList<Integer> arr12 = new ArrayList<>(strArr12.length);
+        for (int i = 0; i < strArr12.length; i++)
         {
-            mas.add(Integer.parseInt(strArr[i]));
+            arr12.add(Integer.parseInt(strArr12[i]));
         }
-        in.close();
-        System.out.println(differenceMaxMin(mas)); */
+        System.out.println(differenceMaxMin(arr12));
 
         //task 13
-        /*
-        System.out.println("Введите массив:");
-        String[] strArr = in.nextLine().split(" ");
-        ArrayList<Integer> mas = new ArrayList<>(strArr.length);
-        for (int i = 0; i < strArr.length; i++)
+        System.out.println("Enter array:");
+        String[] strArr13 = scanner.nextLine().split(" ");
+        ArrayList<Integer> arr13 = new ArrayList<>(strArr13.length);
+        for (int i = 0; i < strArr13.length; i++)
         {
-            mas.add(Integer.parseInt(strArr[i]));
+            arr13.add(Integer.parseInt(strArr13[i]));
         }
-        in.close();
-        System.out.println(isAvgWhole(mas)); */
+        System.out.println(isAvgWhole(arr13));
 
         //task 14
-        /*System.out.println("Введите массив чисел:");
-        String[] strArr = in.nextLine().split(" ");
-        ArrayList<Integer> mas = new ArrayList<>();
-        for (int i = 0; i < strArr.length; i++)
+        System.out.println("Enter array of numbers:");
+        String[] strArr14 = scanner.nextLine().split(" ");
+        ArrayList<Integer> numArr = new ArrayList<>();
+        for (int i = 0; i < strArr14.length; i++)
         {
-            mas.add(Integer.parseInt(strArr[i]));
+            numArr.add(Integer.parseInt(strArr14[i]));
         }
-        in.close();
-        cumulativeSum(mas);
-        for (Integer val : mas)
+        cumulativeSum(numArr);
+        for (Integer val : numArr)
         {
             System.out.print(val.toString() + " ");
-        }      */
+        }
 
         //task 15
-        /*
-        System.out.println("Введите число:");
-        String str = in.next();
-        in.close();
-        System.out.println(getDecimalPlaces(str));*/
+        System.out.println("Enter number:");
+        String number15 = scanner.next();
+        System.out.println(getDecimalPlaces(number15));
 
         //task 16
-        /*
-        System.out.println("Введите номер числа Фибоначчи:");
-        int n = in.nextInt();
-        in.close();
-        System.out.println(fibonacci(n)); */
+        System.out.println("Enter Fibonacci number :");
+        int nFib = scanner.nextInt();
+        System.out.println(fibonacci(nFib));
 
         //task 17
-        /*
-        System.out.println("Введите почтовый индекс:");
-        String str = in.nextLine();
-        in.close();
-        System.out.println(isValid(str));*/
+        System.out.println("Enter post Index:");
+        String index = scanner.nextLine();
+        System.out.println(isValid(index));
 
         //task 18
-        /*
-        System.out.println("Введите два слова:");
-        String str1 = in.next();
-        String str2 = in.next();
-        in.close();
-        System.out.println(isStrangePair(str1, str2)); */
+        System.out.println("Enter 2 words:");
+        String word1 = scanner.next();
+        String word2 = scanner.next();
+
+        System.out.println(isStrangePair(word1, word2));
 
         //task 19
-        /*
-        System.out.println("Введите слово и префикс/суффикс:");
-        String word = in.next();
-        String str = in.next();
-        in.close();
+
+        System.out.println("Enter word and prefix/suffix:");
+        String word = scanner.next();
+        String str = scanner.next();
+        scanner.close();
         if (str.charAt(0) == '-')
-        {
             System.out.println(isSuffix(word, str));
-        }
         else
-        {
             System.out.println(isPrefix(word, str));
-        }*/
 
         //task 20
-        System.out.println("Введите номер шага:");
-        int n = in.nextInt();
-        in.close();
-        System.out.println(boxSeq(n));
+        System.out.println("Enter step number:");
+        int step = scanner.nextInt();
+        System.out.println(boxSeq(step));
     }
 }
