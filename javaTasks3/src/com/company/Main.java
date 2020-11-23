@@ -52,13 +52,13 @@ public class Main {
             return "Incompatible.";
         }
 
-        char cBegin = str.charAt(0);
-        char cEnd = str.charAt(str.length()-1);
-        if (cBegin == cEnd)
+        char charBegin = str.charAt(0);
+        char charEnd = str.charAt(str.length()-1);
+        if (charBegin == charEnd)
         {
             return "Two's a pair.";
         }
-        return cEnd + str.substring(1, str.length()-1) + cBegin;
+        return charEnd + str.substring(1, str.length()-1) + charBegin;
     }
 
     public static boolean isValidHexCode(String str)
@@ -85,20 +85,20 @@ public class Main {
             return false;
     }
 
-    public static boolean isKaprekar(int n)
+    public static boolean isKaprekar(int number)
     {
-        String nn = Integer.toString(n*n);
+        String square = Integer.toString(number*number);
         String str = "";
-        if (nn.length() == 1)
+        if (square.length() == 1)
         {
             str += "0";
         }
-        str += nn;
+        str += square;
         int end = str.length()/2;
         int n1 = Integer.parseInt(str.substring(0, end));
         int n2 = Integer.parseInt(str.substring(end, str.length()));
 
-        if (n1 + n2 == n)
+        if (n1 + n2 == number)
             return true;
         else
             return false;
@@ -108,155 +108,118 @@ public class Main {
     {
         String[] strArr = str.split("1");
 
-        String res = "";
+        String result = "";
         for (String val : strArr)
-        {
-            if (val.length() > res.length())
-            {
-                res = val;
-            }
-        }
+            if (val.length() > result.length())
+                result = val;
 
-        return res;
+        return result;
     }
 
-    public static int nextPrime(int n)
+    public static int nextPrime(int number)
     {
-        if (n == 2)
-          return n;
+        if (number == 2)
+          return number;
 
-        if (n % 2 == 0)
-          n++;
+        if (number % 2 == 0)
+          number++;
 
         while (true)
         {
-            int end = (int)Math.ceil(Math.sqrt(n));
+            int endNumber = (int)Math.ceil(Math.sqrt(number));
             int i;
-            for (i = 2; i <= end; i++)
-            {
-                if (n % i == 0)
+            for (i = 2; i <= endNumber; i++)
+                if (number % i == 0)
                  break;
 
-            }
-
-            if (i == end+1)
+            if (i - 1 == endNumber)
                 break;
             else
-                n += 2;
+                number += 2;
         }
-
-        return n;
+        return number;
     }
 
-    public static boolean rightTriangle(ArrayList<Integer> mas)
+    public static boolean rightTriangle(ArrayList<Integer> arr)
     {
-        Collections.sort(mas);
-        int a = mas.get(0);
-        int b = mas.get(1);
-        int c = mas.get(2);
+        Collections.sort(arr);
+        int a = arr.get(0);
+        int b = arr.get(1);
+        int c = arr.get(2);
 
         if (a*a + b*b == c*c)
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         //task 21
-        /*
-        System.out.println("Введите значения a, b и c:");
-		int a = in.nextInt();
-		int b = in.nextInt();
-		int c = in.nextInt();
-		in.close();
-		System.out.println(solutions(a, b, c)); */
-
+        System.out.println("Enter numbers a, b and c:");
+		int a21 = scanner.nextInt();
+		int b21 = scanner.nextInt();
+		int c21 = scanner.nextInt();
+		System.out.println(solutions(a21, b21, c21));
 
         //task 22
-        /*
-        System.out.println("Введите строку:");
-		String str = in.nextLine();
-		in.close();
-		System.out.println(findZip(str)); */
+        System.out.println("Enter string:");
+		String str23 = scanner.nextLine();
+		System.out.println(findZip(str23));
 
         //task 23
-        /*
-       System.out.println("Введите число:");
-		int num = in.nextInt();
-
-		in.close();
-
-		System.out.println(checkPerfect(num)); */
+        System.out.println("Enter number:");
+		int num23 = scanner.nextInt();
+		System.out.println(checkPerfect(num23));
 
         //task 24
-        /*
-        System.out.println("Введите строку:");
-		String str = in.nextLine();
-		in.close();
-		System.out.println(flipEndChars(str));
-         */
+        System.out.println("Enter string:");
+		String str24 = scanner.nextLine();
+		System.out.println(flipEndChars(str24));
 
         //task 25
-        /*
-        System.out.println("Введите шестнадцатеричный код:");
-		String str = in.nextLine();
-		in.close();
-		System.out.println(isValidHexCode(str));
-		*/
+        System.out.println("Enter 16bit code:");
+		String bit16Code = scanner.nextLine();
+		System.out.println(isValidHexCode(bit16Code));
 
         //task 26
-        /*
-        System.out.println("Введите два массива:");
-		String[] strArr = in.nextLine().split(" ");
-		ArrayList<Integer> mas1 = new ArrayList<>(strArr.length);
-		for (int i = 0; i < strArr.length; i++)
+        System.out.println("Enter two arrays:");
+		String[] strArr26 = scanner.nextLine().split(" ");
+		ArrayList<Integer> firstArray = new ArrayList<>(strArr26.length);
+		for (int i = 0; i < strArr26.length; i++)
 		{
-			mas1.add(Integer.parseInt(strArr[i]));
+			firstArray.add(Integer.parseInt(strArr26[i]));
 		}
-		strArr = in.nextLine().split(" ");
-		ArrayList<Integer> mas2 = new ArrayList<>(strArr.length);
-		for (int i = 0; i < strArr.length; i++)
+		strArr26 = scanner.nextLine().split(" ");
+		ArrayList<Integer> secondArray = new ArrayList<>(strArr26.length);
+		for (int i = 0; i < strArr26.length; i++)
 		{
-			mas2.add(Integer.parseInt(strArr[i]));
+			secondArray.add(Integer.parseInt(strArr26[i]));
 		}
-		in.close();
-		System.out.println(same(mas1, mas2));
-		*/
+		System.out.println(same(firstArray, secondArray));
 
         //task 27
-        /*
-        System.out.println("Введите число:");
-		int n = in.nextInt();
-		in.close();
-		System.out.println(isKaprekar(n));*/
+        System.out.println("Enter number:");
+		int number27 = scanner.nextInt();
+		System.out.println(isKaprekar(number27));
 
         //task 28
-        /*
-        System.out.println("Введите двоичное число:");
-		String str = in.next();
-		in.close();
-		System.out.println(longestZero(str)); */
+        System.out.println("Enter double number:");
+		String str28 = scanner.next();
+		System.out.println(longestZero(str28));
 
         //task 29
-        /*
-        System.out.println("Введите число:");
-		int n = in.nextInt();
-		in.close();
-		System.out.println(nextPrime(n));*/
+        System.out.println("Enter number:");
+		int number29 = scanner.nextInt();
+		System.out.println(nextPrime(number29));
 
-        //task 20
-        System.out.println("Введите стороны треугольника:");
-        ArrayList<Integer> mas = new ArrayList<>(3);
-        mas.add(in.nextInt());
-        mas.add(in.nextInt());
-        mas.add(in.nextInt());
-        in.close();
-        System.out.println(rightTriangle(mas));
+        //task 30
+        System.out.println("Enter triangle sides:");
+        ArrayList<Integer> triangleSides = new ArrayList<>(3);
+        triangleSides.add(scanner.nextInt());
+        triangleSides.add(scanner.nextInt());
+        triangleSides.add(scanner.nextInt());
+        System.out.println(rightTriangle(triangleSides));
     }
 }
