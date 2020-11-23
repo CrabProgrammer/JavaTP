@@ -76,80 +76,75 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         //task 1
-        /*System.out.println("Enter numbers a and b");
+        System.out.println("Enter numbers a and b");
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+        int a1 = scanner.nextInt();
+        int b1 = scanner.nextInt();
 
-        System.out.println(remainder(a, b));*/
+        System.out.println(remainder(a1, b1));
 
         //task 2
-        /*System.out.println("Enter h and w of triangle");
+        System.out.println("Enter h and w of triangle");
 
-        double a = scanner.nextInt();
-        double b = scanner.nextInt();
-
-        double ans = triArea(a, b);
-        System.out.println(ans);*/
+        double h = scanner.nextInt();
+        double w = scanner.nextInt();
+        double result = triArea(h, w);
+        System.out.println(result);
 
         //task 3
-        /*System.out.println("Enter count of chicks, cows and pigs");
+        System.out.println("Enter count of chicks, cows and pigs");
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        int c = scanner.nextInt();
-
-        int ans = animals(a, b, c);
-        System.out.println(ans);*/
+        int chicks = scanner.nextInt();
+        int cows = scanner.nextInt();
+        int pigs = scanner.nextInt();
+        System.out.println(animals(chicks,cows,pigs));
 
         //task 4
 
-        /*System.out.println("Enter prob, prize and pay");
-
+        System.out.println("Enter prob, prize and pay");
         double prob = scanner.nextDouble();
         double prize = scanner.nextDouble();
         double pay = scanner.nextDouble();
-
-        System.out.println(profitableGamble(prob, prize, pay));*/
+        System.out.println(profitableGamble(prob, prize, pay));
 
         //task 5
 
-        /*System.out.println("Enter numbers N, a, b");
+        System.out.println("Enter numbers N, a, b");
 
         int N = scanner.nextInt();
         int a = scanner.nextInt();
         int b = scanner.nextInt();
 
-        System.out.println(operation(N, a, b));*/
+        System.out.println(operation(N, a, b));
 
         //task 6
 
-        /*System.out.println("Enter symbol");
+        System.out.println("Enter symbol");
 
-        String a = scanner.nextLine();
+        String symbol = scanner.nextLine();
 
-        System.out.println(ctoa(a));*/
+        System.out.println(ctoa(symbol));
 
         //task 7
 
-        /*System.out.println("Enter last number from array");
+        System.out.println("Enter last number from array");
 
         int n = scanner.nextInt();
 
-        System.out.println(addUpTo(n));*/
+        System.out.println(addUpTo(n));
 
         //task 8
 
-        /*System.out.println("Enter two sides of triangle");
+        System.out.println("Enter two sides of triangle");
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+        int first = scanner.nextInt();
+        int second = scanner.nextInt();
 
-        System.out.println(nextEdge(a, b));*/
+        System.out.println(nextEdge(first, second));
 
         //task 9
 
-        /*System.out.println("Enter array size");
+        System.out.println("Enter array size");
         int size = scanner.nextInt();
         int cubes[] = new int[size];
         System.out.println("Enter number for array.");
@@ -157,16 +152,15 @@ public class Main {
             cubes[i] = scanner.nextInt();
         }
 
-        System.out.print((int)sumOfCubes(cubes));*/
+        System.out.print((int)sumOfCubes(cubes));
 
         //task 10
 
         System.out.println("Enter a, b and c");
+        int a10 = scanner.nextInt();
+        int b10 = scanner.nextInt();
+        int c10 = scanner.nextInt();
 
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        int c = scanner.nextInt();
-
-        System.out.println(abcmath(a, b, c));
+        System.out.println(abcmath(a10, b10, c10));
        }
 }
